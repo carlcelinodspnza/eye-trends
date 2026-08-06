@@ -1,0 +1,851 @@
+{
+  "shape": "mp",
+  "domain": "jc1147.github.io",
+  "bundle_root": "/Users/carlcelino/OSOFT/Code/clones/jc1147.github.io",
+  "pages": [
+    {
+      "name": "index.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/index.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "accessibility.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/accessibility.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "adult-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/adult-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "back-to-school-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/back-to-school-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "book-appointment.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/book-appointment.html",
+      "templates_injected": [
+        "nav-mobile",
+        "form-submit"
+      ]
+    },
+    {
+      "name": "cataract-co-management.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/cataract-co-management.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "childrens-contact-lenses.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/childrens-contact-lenses.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "childrens-eye-care.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/childrens-eye-care.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "comprehensive-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/comprehensive-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "contact-lens-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/contact-lens-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "contact-lenses.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/contact-lenses.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "contact.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/contact.html",
+      "templates_injected": [
+        "nav-mobile",
+        "form-submit"
+      ]
+    },
+    {
+      "name": "designer-frames.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/designer-frames.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "diabetic-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/diabetic-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "disclaimer.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/disclaimer.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "dry-eye-treatment.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/dry-eye-treatment.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "emergency-eye-care.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/emergency-eye-care.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "eye-health.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/eye-health.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "eyewear.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/eyewear.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "flashes-floaters.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/flashes-floaters.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "foreign-body-removal.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/foreign-body-removal.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "gas-permeable-contacts.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/gas-permeable-contacts.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "glaucoma-management.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/glaucoma-management.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "insurance.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/insurance.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "kids-eyewear.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/kids-eyewear.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "lasik-co-management.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/lasik-co-management.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "macular-degeneration.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/macular-degeneration.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "medical-eye-care.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/medical-eye-care.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "multifocal-contacts.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/multifocal-contacts.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "myopia-management.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/myopia-management.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "our-doctor.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/our-doctor.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "patient-forms.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/patient-forms.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "pediatric-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/pediatric-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "pink-eye-conjunctivitis.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/pink-eye-conjunctivitis.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "privacy-policy.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/privacy-policy.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "red-eye-treatment.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/red-eye-treatment.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "reviews.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/reviews.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "same-day-contacts.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/same-day-contacts.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "senior-eye-exams.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/senior-eye-exams.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "services.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/services.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "specialty-contacts.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/specialty-contacts.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "sunglasses.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/sunglasses.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    },
+    {
+      "name": "toric-contacts.html",
+      "source": "https://jc1147.github.io/squah-previews/eyetrends/toric-contacts.html",
+      "templates_injected": [
+        "nav-mobile"
+      ]
+    }
+  ],
+  "chrome_css_chars": 222613,
+  "css_sources_consolidated": 215,
+  "assets_emitted": 20,
+  "transformations": {
+    "links_removed": 172,
+    "styles_removed": 0,
+    "tracking_scripts_stripped": 0,
+    "base_stripped": 0,
+    "data_screen_label_stripped": 0,
+    "url_attrs_rewritten": 0,
+    "internal_hrefs_rewritten": 0,
+    "templates_injected": [
+      "nav-mobile",
+      "form-submit"
+    ]
+  },
+  "internal_link_map": [
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/index.html",
+      "index.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/accessibility.html",
+      "accessibility.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/adult-eye-exams.html",
+      "adult-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/back-to-school-eye-exams.html",
+      "back-to-school-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/book-appointment.html",
+      "book-appointment.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/cataract-co-management.html",
+      "cataract-co-management.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/childrens-contact-lenses.html",
+      "childrens-contact-lenses.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/childrens-eye-care.html",
+      "childrens-eye-care.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/comprehensive-eye-exams.html",
+      "comprehensive-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/contact-lens-exams.html",
+      "contact-lens-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/contact-lenses.html",
+      "contact-lenses.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/contact.html",
+      "contact.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/designer-frames.html",
+      "designer-frames.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/diabetic-eye-exams.html",
+      "diabetic-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/disclaimer.html",
+      "disclaimer.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/dry-eye-treatment.html",
+      "dry-eye-treatment.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/emergency-eye-care.html",
+      "emergency-eye-care.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/eye-health.html",
+      "eye-health.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/eyewear.html",
+      "eyewear.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/flashes-floaters.html",
+      "flashes-floaters.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/foreign-body-removal.html",
+      "foreign-body-removal.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/gas-permeable-contacts.html",
+      "gas-permeable-contacts.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/glaucoma-management.html",
+      "glaucoma-management.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/insurance.html",
+      "insurance.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/kids-eyewear.html",
+      "kids-eyewear.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/lasik-co-management.html",
+      "lasik-co-management.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/macular-degeneration.html",
+      "macular-degeneration.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/medical-eye-care.html",
+      "medical-eye-care.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/multifocal-contacts.html",
+      "multifocal-contacts.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/myopia-management.html",
+      "myopia-management.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/our-doctor.html",
+      "our-doctor.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/patient-forms.html",
+      "patient-forms.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/pediatric-eye-exams.html",
+      "pediatric-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/pink-eye-conjunctivitis.html",
+      "pink-eye-conjunctivitis.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/privacy-policy.html",
+      "privacy-policy.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/red-eye-treatment.html",
+      "red-eye-treatment.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/reviews.html",
+      "reviews.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/same-day-contacts.html",
+      "same-day-contacts.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/senior-eye-exams.html",
+      "senior-eye-exams.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/services.html",
+      "services.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/specialty-contacts.html",
+      "specialty-contacts.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/sunglasses.html",
+      "sunglasses.html"
+    ],
+    [
+      "https://jc1147.github.io/squah-previews/eyetrends/toric-contacts.html",
+      "toric-contacts.html"
+    ]
+  ],
+  "clone_stage": 3,
+  "emitted_at": "2026-08-06T02:29:15.531Z",
+  "stage_5_audit": {
+    "audited_at": "2026-08-06T02:37:11.352Z",
+    "files_walked": 76,
+    "file_counts": {
+      "html": 43,
+      "css": 1,
+      "js": 0,
+      "asset": 30,
+      "doc": 2
+    },
+    "layer_2_hard_issues": [],
+    "layer_2_soft_issues": [],
+    "acceptance_gates": [
+      {
+        "id": 1,
+        "name": "Folder structure",
+        "passed": true,
+        "detail": {
+          "has_readme": true,
+          "has_audit": true,
+          "has_project": true,
+          "shape": "mp"
+        }
+      },
+      {
+        "id": 2,
+        "name": "HTML head conformance",
+        "passed": true,
+        "detail": {
+          "failed": []
+        }
+      },
+      {
+        "id": 3,
+        "name": "CSS placement",
+        "passed": true,
+        "detail": {
+          "placement": [
+            {
+              "file": "accessibility.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "adult-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "back-to-school-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "book-appointment.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "cataract-co-management.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "childrens-contact-lenses.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "childrens-eye-care.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "comprehensive-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "contact-lens-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "contact-lenses.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "contact.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "designer-frames.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "diabetic-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "disclaimer.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "dry-eye-treatment.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "emergency-eye-care.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "eye-health.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "eyewear.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "flashes-floaters.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "foreign-body-removal.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "gas-permeable-contacts.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "glaucoma-management.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "index.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "insurance.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "kids-eyewear.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "lasik-co-management.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "macular-degeneration.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "medical-eye-care.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "multifocal-contacts.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "myopia-management.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "our-doctor.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "patient-forms.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "pediatric-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "pink-eye-conjunctivitis.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "privacy-policy.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "red-eye-treatment.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "reviews.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "same-day-contacts.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "senior-eye-exams.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "services.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "specialty-contacts.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "sunglasses.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            },
+            {
+              "file": "toric-contacts.html",
+              "has_inline_style": false,
+              "has_link_sheet": true
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "name": "Google Fonts @import (or no fonts needed)",
+        "passed": true,
+        "detail": {
+          "has_google_fonts_import": false
+        }
+      },
+      {
+        "id": 5,
+        "name": "Fluid type via clamp()",
+        "passed": true,
+        "detail": {
+          "has_clamp": true
+        }
+      },
+      {
+        "id": 6,
+        "name": "@keyframes present (or none in source)",
+        "passed": true,
+        "detail": {
+          "has_keyframes": false
+        }
+      },
+      {
+        "id": 7,
+        "name": "prefers-reduced-motion override",
+        "passed": true,
+        "detail": {
+          "has_reduced_motion": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "Interactive state rules",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "id": 9,
+        "name": "≥3 distinct responsive breakpoints",
+        "passed": true,
+        "detail": {
+          "breakpoints_found": [
+            132,
+            150,
+            420,
+            440,
+            520,
+            560,
+            640,
+            680,
+            720,
+            767,
+            768,
+            780,
+            960,
+            1024,
+            1100,
+            1180,
+            1199
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "name": "Cross-origin URL audit",
+        "passed": true,
+        "detail": {
+          "suspicious_refs": []
+        }
+      },
+      {
+        "id": 11,
+        "name": "README.md follows §M structure",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "id": 12,
+        "name": "No build artifacts",
+        "passed": true,
+        "detail": {
+          "has_package_json": false,
+          "has_node_modules": false,
+          "has_dist": false
+        }
+      }
+    ],
+    "all_gates_pass": true,
+    "no_hard_issues": true,
+    "overall_pass": true
+  }
+}
