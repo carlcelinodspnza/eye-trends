@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Page not found | Eye Trends Vision &amp; Glasses Center</title>
+<!--
+  Deliberately self-contained: inline styles, no external stylesheet, no images. GitHub Pages
+  serves this file for any missing path, including nested ones, where a relative
+  href="chrome.css" would not resolve — so the page must carry its own styling.
+
+  The two links below are intentionally RELATIVE, which keeps the build's "zero root-absolute
+  references" property intact so the site still serves from any subpath or domain. The site is
+  flat (every page sits at the root), so a 404 realistically means a mistyped page name at the
+  root, where relative links resolve correctly. A 404 at a deeper nested path would land these
+  links one level off; that trade was taken deliberately in favour of portability.
+-->
+<style>
+  :root{
+    --primary:#0B7360; --primary-deep:#0E1C1E; --accent:#E0A44C;
+    --surface:#F7FAFB; --ink:#17262B; --ink-soft:#4E626A;
+    --ink-on-dark:#EDF5F3; --line:#DCE4E7;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:clamp(1.5rem,5vw,4rem);
+    background:var(--surface);
+    color:var(--ink);
+    font:400 1rem/1.6 'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    width:100%; max-width:34rem; text-align:center;
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    padding:clamp(2rem,6vw,3.5rem);
+    box-shadow:0 1px 2px rgba(14,28,30,.04),0 12px 32px rgba(14,28,30,.06);
+  }
+  .mark{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:56px; height:56px; margin-bottom:1.5rem; border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),#14A58C);
+    color:var(--ink-on-dark);
+  }
+  .mark svg{width:28px;height:28px}
+  .code{
+    display:block; font-size:.75rem; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:.5rem;
+  }
+  h1{
+    margin:0 0 .75rem; font-size:clamp(1.5rem,4vw,2rem); line-height:1.2;
+    font-weight:700; color:var(--primary-deep); letter-spacing:-.01em;
+  }
+  p{margin:0 auto 2rem; max-width:26rem; color:var(--ink-soft)}
+  .actions{display:flex; flex-wrap:wrap; gap:.75rem; justify-content:center}
+  a.btn{
+    display:inline-block; padding:.8rem 1.5rem; border-radius:8px;
+    font-weight:600; text-decoration:none; transition:opacity .15s ease;
+  }
+  a.btn:hover{opacity:.88}
+  a.btn:focus-visible{outline:3px solid var(--accent); outline-offset:2px}
+  .btn-primary{background:var(--primary); color:#fff}
+  .btn-ghost{background:transparent; color:var(--primary); border:1px solid var(--line)}
+  .call{
+    margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--ink-soft);
+  }
+  .call a{color:var(--primary); font-weight:600; text-decoration:none}
+  .call a:hover{text-decoration:underline}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+  <main class="card">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"></path>
+        <circle cx="12" cy="12" r="3.2"></circle>
+      </svg>
+    </span>
+
+    <span class="code">Error 404</span>
+    <h1>We couldn&rsquo;t find that page</h1>
+    <p>The link may be out of date, or the address might have a typo in it. Let&rsquo;s get you back on track.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="index.html">Back to home</a>
+      <a class="btn btn-ghost" href="services.html">Browse services</a>
+    </div>
+
+    <p class="call">
+      Need an appointment? Call <a href="tel:+12814880066">(281) 488-0066</a>
+    </p>
+  </main>
+</body>
+</html>

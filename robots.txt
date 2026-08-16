@@ -1,0 +1,7 @@
+# This site is a build artifact, not the practice's live website.
+# Eye Trends Vision & Glasses Center's real site is https://www.eyetrendsclearlake.com/
+# Crawlers are asked to stay out so this copy does not compete with it in search.
+# See docs/PROVENANCE.md before changing this.
+
+User-agent: *
+Disallow: /
