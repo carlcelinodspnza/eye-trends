@@ -81,9 +81,17 @@ therefore **unbounded, growing with the window**:
 
 | Viewport | `optical-1.jpg` renders | Upscale from 300 × 187 |
 |---|---|---|
+| 375 px | 375 × 758 | 1.25× |
+| 768 px | 768 × 576 | 2.56× |
 | 1440 px | 1440 × 770 | 4.8× |
 | **1920 px** | **1920 × 770** | **6.4×** |
-| any width *w* | *w* × 770 | *w* / 300 |
+| any width *w* | *w* × (varies) | ***w* / 300** |
+
+Only the **width** follows the viewport. The height is content-driven, not a fixed ratio — the
+image computes `aspect-ratio: auto`, `max-height: none`, `object-fit: cover`, so it fills a
+container whose height comes from the hero's own content; measured heights ran 576–770 px across
+those four widths and do not follow a formula. Quote `w / 300` for the upscale; do not quote a
+fixed rendered height.
 
 **A capped container, which fails the other way.** `dr-hyder.jpg` (200 × 319) is worst at a *mid*
 viewport, because at ≤1024 px `.bw-founder` collapses to a single column (`chrome.css` line 1349,
