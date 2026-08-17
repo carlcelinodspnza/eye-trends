@@ -21,10 +21,13 @@ But **nothing anywhere loads either typeface.** `chrome.css` contains 56 `@font-
 56 are `'Inter'`. The only stylesheet any page links is `chrome.css` — there is no Google Fonts
 stylesheet link, only a `preconnect` that fetches nothing.
 
-So every heading, the brand lockup and every button falls through `--ds-font-display` to the
+So every heading, the brand **name** and every button falls through `--ds-font-display` to the
 `system-ui` fallback. Eyebrows fall through a *different* chain: `--ds-font-mono` has no
-`system-ui` in it, so they — along with the other rules consuming that token (form labels, hours
-rows, team roles, TOC titles) — render in `ui-monospace`. Two distinct wrong faces, not one.
+`system-ui` in it, so they render in `ui-monospace` — along with the other rules consuming that
+token, including `.brand-sub` (the "Vision & Glasses Center" line, `chrome.css` line 148), form
+labels, hours rows, team roles and TOC titles. Two distinct wrong faces, not one — and note the
+brand lockup is **split across both**: its first line takes the display chain, its second the mono
+chain.
 
 ```bash
 grep -A3 '@font-face' chrome.css | grep -o "font-family:[^;]*" | sort | uniq -c
@@ -67,10 +70,22 @@ their intrinsic size:
 | `assets/real/optical-1.jpg` | **300 × 187** | 13 KB | 23 pages |
 | `assets/real/optical-2.jpg` | **300 × 161** | 12 KB | 8 pages |
 
-Measured on the deployed site rather than estimated: `dr-hyder.jpg` renders at **563 × 440** on
-`book-appointment.html` at a 1280 px viewport, from a 200 × 319 source — a **2.8× upscale**, and
-that is the widest it gets anywhere in the build. Noticeable, not catastrophic. A production pass
-still wants higher-resolution replacements sitewide.
+Measured on the deployed site rather than estimated — and the number depends heavily on viewport,
+so a single desktop reading understates it badly:
+
+| Page | Viewport | `dr-hyder.jpg` renders | Upscale from 200 × 319 |
+|---|---|---|---|
+| `book-appointment.html` | 1280 px | 563 × 440 | 2.8× |
+| `our-doctor.html` | 900 px | 826 × 376 | 4.1× |
+| **`our-doctor.html`** | **1024 px** | **942 × 376** | **4.71× — the worst case** |
+
+The reason the mid-size viewport is worse than the wide one: at ≤1024 px every two-column split row
+collapses to a single column (`chrome.css` line 1371), so the portrait stops sharing its row and
+stretches to nearly the full 944 px content width. A 200 px source blown up to 942 px is visibly
+soft. `practice-office.jpg` and `optical-2.jpg` hit 3.15× on the same page at the same width.
+
+A production pass needs higher-resolution replacements sitewide. When checking your work, measure
+at 1024 px, not just at desktop — desktop is the flattering case.
 
 Follow the swap discipline in the README: count references first, add a **new** file, repoint only
 the container you mean to change. `dr-hyder.jpg` alone is on 38 pages — overwriting it in place
