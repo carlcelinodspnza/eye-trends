@@ -19,8 +19,12 @@ The design tokens in `chrome.css` specify:
 
 But **nothing anywhere loads either typeface.** `chrome.css` contains 56 `@font-face` blocks and all
 56 are `'Inter'`. The only stylesheet any page links is `chrome.css` — there is no Google Fonts
-stylesheet link, only a `preconnect` that fetches nothing. So every heading, the brand lockup, every
-button and every eyebrow renders in the `system-ui` fallback.
+stylesheet link, only a `preconnect` that fetches nothing.
+
+So every heading, the brand lockup and every button falls through `--ds-font-display` to the
+`system-ui` fallback. Eyebrows fall through a *different* chain: `--ds-font-mono` has no
+`system-ui` in it, so they — along with the other rules consuming that token (form labels, hours
+rows, team roles, TOC titles) — render in `ui-monospace`. Two distinct wrong faces, not one.
 
 ```bash
 grep -A3 '@font-face' chrome.css | grep -o "font-family:[^;]*" | sort | uniq -c
@@ -47,22 +51,26 @@ site will not look like it does now. Get sign-off before doing it.
 
 ---
 
-## 2. 42 of 43 pages still use the original low-resolution imagery
+## 2. 39 of 43 pages still use the original low-resolution imagery
 
 **Status:** verified. Cosmetic, but the most visible quality problem in the build.
 
-Only `index.html` received owner-supplied images. Everywhere else, source assets are being displayed
-far above their intrinsic size:
+Only `index.html` received owner-supplied images. Three legal pages — `accessibility.html`,
+`disclaimer.html` and `privacy-policy.html` — carry no imagery at all (zero `<img>` elements; their
+only asset reference is the favicon). On the remaining 39, source assets are displayed well above
+their intrinsic size:
 
 | File | Intrinsic | Weight | Referenced on |
 |---|---|---|---|
 | `assets/real/dr-hyder.jpg` | **200 × 319** | 10 KB | 38 of 43 pages |
+| `assets/real/practice-office.jpg` | **300 × 249** | 14 KB | 25 of 43 pages |
 | `assets/real/optical-1.jpg` | **300 × 187** | 13 KB | 23 pages |
-| `assets/real/optical-2.jpg` | **300 × 161** | 11 KB | 8 pages |
-| `assets/real/practice-office.jpg` | **300 × 249** | 14 KB | — |
+| `assets/real/optical-2.jpg` | **300 × 161** | 12 KB | 8 pages |
 
-A 200 px wide portrait rendered into a container up to ~944 px is roughly a 4.7× upscale. Any
-production pass needs higher-resolution replacements sitewide.
+Measured on the deployed site rather than estimated: `dr-hyder.jpg` renders at **563 × 440** on
+`book-appointment.html` at a 1280 px viewport, from a 200 × 319 source — a **2.8× upscale**, and
+that is the widest it gets anywhere in the build. Noticeable, not catastrophic. A production pass
+still wants higher-resolution replacements sitewide.
 
 Follow the swap discipline in the README: count references first, add a **new** file, repoint only
 the container you mean to change. `dr-hyder.jpg` alone is on 38 pages — overwriting it in place
@@ -111,8 +119,10 @@ Every page has `<title>` and `<meta name="description">` and nothing else. No `<
 no `og:*`, no `twitter:*`, no structured data. Sharing any URL produces a bare unfurl, and a search
 engine gets no signal about which copy of this content is authoritative.
 
-Related and more urgent — see `PROVENANCE.md`: there is **no `<meta name="robots">` on any page
-either.** The root `robots.txt` requests that crawlers stay out, but that is a request, not an
+Related and more urgent — see `PROVENANCE.md`: there is **no `<meta name="robots">` on any of the 43
+content pages either.** `404.html` is the only file in the build that carries one
+(`<meta name="robots" content="noindex, nofollow">`) — it is the pattern to copy. The root
+`robots.txt` requests that crawlers stay out, but that is a request, not an
 access control, and it does not deindex URLs that are already known. For a build that duplicates a
 real operating business with its own live website, per-page `noindex, nofollow` plus a canonical
 pointing at `eyetrendsclearlake.com` is the control that actually works. **Adding it edits all 43

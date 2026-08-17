@@ -17,11 +17,25 @@ per-page source URL for each file is recorded in `audit.json` under `pages[]`.
 
 What the clone tooling changed relative to the source:
 
-- 5 source stylesheets (215 CSS sources) were consolidated into the single `chrome.css`.
-- Internal navigation hrefs were rewritten to point at sibling files in a flat directory.
+- **4 source stylesheets** (215 CSS sources) were consolidated into the single `chrome.css`: three
+  local `design-system/` sheets plus the Google Fonts sheet. `chrome.css` carries five
+  `/* === source: === */` blocks, but two of them are the same Google Fonts URL — fetched once raw
+  and once HTML-entity-escaped — so that sheet is embedded twice.
+- 172 `<link rel="stylesheet">` **elements** were removed (`audit.json` →
+  `transformations.links_removed`): 43 pages × 4 sheets, replaced by the single `chrome.css` link.
+  **No hyperlinks were removed** — this field is about `<link>` tags, not anchors.
 - Cross-origin font files were mirrored locally into `_xorigin/fonts.gstatic.com/`.
-- Analytics and tracking tags (GA, GTM, Facebook pixel, Hotjar and similar) were stripped.
-- 172 links were removed (`audit.json` → `transformations.links_removed`).
+- Two page templates were injected (`nav-mobile`, `form-submit`).
+
+Two transformations that did **not** happen, despite what a reader might assume:
+
+- **No hrefs were rewritten.** The source is already flat — its internal navigation is bare sibling
+  `.html` links — so nothing needed changing. `audit.json` →
+  `transformations.internal_hrefs_rewritten` is `0`.
+- **No analytics or tracking tags were stripped, because the source had none.** `audit.json` →
+  `transformations.tracking_scripts_stripped` is `0`. Every script block in the source is inline
+  and first-party. Do not read this build's cleanliness as evidence that the tooling scrubbed a
+  tracked production site — it didn't have to.
 
 ## The subject is a real, operating business
 
@@ -31,7 +45,7 @@ The site reproduces the identity of a live optometry practice:
 |---|---|
 | Business | Eye Trends Vision & Glasses Center (Eye Trends Clear Lake) |
 | Practitioner | Dr. Jerry Hyder, OD |
-| Address | 515 Bay Area Blvd Ste 300, Houston, TX 77058 |
+| Address | 515 Bay Area Blvd #300, Houston, TX 77058 — written `#300` throughout the build; the practice's own site writes it `Suite 300` |
 | Phone | (281) 488-0066 — appears as `tel:+12814880066` throughout the build |
 | **Their own live website** | **https://www.eyetrendsclearlake.com/** |
 
@@ -70,7 +84,7 @@ sized to its measured container box:
 |---|---|---|---|
 | `assets/real/trust-banner.png` | `.ethc-trust__photo` | 1120 × 210 | 1 |
 | `assets/real/dr-hyder-portrait.png` | `.et-doctor__portrait` | 511 × 560 | 1 |
-| `assets/real/optical-showroom.png` | `.ethc-close__media` | 455 × 480 | 1 |
+| `assets/real/optical-showroom.png` | `.ethc-close__media` | 455 × 480 — the container actually measures **475 × 480** at desktop, so this one is 20 px under-sized and gets upscaled by `object-fit: cover` | 1 |
 
 These were added as **new files** rather than overwriting the originals they replaced, because those
 originals are shared across the site — overwriting would have silently changed dozens of untouched
@@ -82,7 +96,9 @@ pages. Current reference counts, verified against the working tree:
 | `assets/real/optical-1.jpg` | 23 of 43 pages |
 | `assets/real/optical-2.jpg` | 8 of 43 pages |
 
-**The other 42 pages still carry the original source imagery.** See `OPEN-ITEMS.md`.
+**39 of the other 42 pages still carry the original source imagery.** The three legal pages
+(`accessibility.html`, `disclaimer.html`, `privacy-policy.html`) carry no imagery at all — zero
+`<img>` elements, favicon only. See `OPEN-ITEMS.md`.
 
 Container mechanics, if you need to swap these again: `.ethc-trust__photo` is `aspect-ratio`-driven
 with `overflow:hidden` + `object-fit:cover`. `.et-doctor__portrait` is `position:absolute` filling

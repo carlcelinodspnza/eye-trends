@@ -24,12 +24,15 @@ status field alone — assert the SHA.
 ```bash
 REPO=carlcelinodspnza/eye-trends
 PUSHED=$(git rev-parse HEAD)
+BUILT=$(gh api repos/$REPO/pages/builds/latest --jq '.commit')
 
-# what Pages actually built
-gh api repos/$REPO/pages/builds/latest --jq '.commit'
-
-# if it lags the pushed SHA, force a build and re-check
-gh api -X POST repos/$REPO/pages/builds
+# assert, don't eyeball — and force a rebuild if Pages is lagging
+if [ "$PUSHED" = "$BUILT" ]; then
+  echo "live: $BUILT"
+else
+  echo "LAGGING: pages=$BUILT pushed=$PUSHED"
+  gh api -X POST repos/$REPO/pages/builds
+fi
 ```
 
 Belt and braces: after the SHA matches, fetch a real asset and grep it for a string you know is new

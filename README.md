@@ -26,18 +26,25 @@ python3 -m http.server 8000
 
 | Thing | Where | Notes |
 |---|---|---|
-| Pages | 43 `.html` files, all at the repo root | Flat structure — no nested page directories |
-| Styles | `chrome.css` (223,507 bytes) | The **only** stylesheet, consolidated from 5 source sheets. Every page links it. |
-| Design tokens | `:root` block at the top of `chrome.css` | Brand palette, type scale, radii, gradients |
-| Images | `assets/real/`, `assets/gen/`, `assets/full-library/` | 23 files. `assets/favicon.svg` is the site icon. |
-| Fonts | `_xorigin/fonts.gstatic.com/s/` | 10 self-hosted `.woff2`, referenced by relative `url()` in `chrome.css` |
-| Behaviour | Inline `<script>` blocks | All 43 pages carry one; **zero external script files** and no third-party tags |
+| Pages | 43 `.html` content pages, all at the repo root, plus `404.html` | Flat structure — no nested page directories |
+| Styles | `chrome.css` (223,507 bytes) | The **only** stylesheet, consolidated from 4 source sheets. All 43 content pages link it; `404.html` deliberately does not — it carries its own inline styles so it renders when served for a nested missing path. |
+| Design tokens | `:root` block at **line 424** of `chrome.css` — where the consolidated `tokens.css` section starts, not the top of the file | Brand palette, type scale, radii, gradients |
+| Images | `assets/real/` (7) · `assets/gen/` (5) · `assets/full-library/` (10) | 22 files, plus `assets/favicon.svg` at the `assets/` root — 23 in total. The favicon is the site icon. |
+| Fonts | `_xorigin/fonts.gstatic.com/s/` | 10 self-hosted `.woff2`, but only the **7 Inter files** are referenced by relative `url()` in `chrome.css`. The 3 Fraunces files are dead weight — see OPEN-ITEMS #3. |
+| Behaviour | Inline `<script>` blocks | Every page carries two or three (20 pages have 2, 23 have 3); **zero external script files** and no analytics or tracking tags |
 | Clone receipt | `audit.json` | Machine record from the tooling that produced the build — see PROVENANCE |
 
-Two properties worth knowing before you touch anything:
+Three properties worth knowing before you touch anything:
 
-- **There are no page-level `<style>` blocks.** All styling is in `chrome.css`. (An earlier
-  auto-generated README claimed otherwise; it was wrong — verified 0 across all 43 pages.)
+- **There are no page-level `<style>` blocks** on any of the 43 content pages. (An earlier
+  auto-generated README claimed otherwise; it was wrong — verified 0 across all 43 pages.
+  `404.html` does carry one, deliberately, because it must render standalone.) Stylesheet *rules*
+  all live in `chrome.css` — but the pages also carry **901 inline `style="…"` attributes**, mostly
+  `--et-i` animation-stagger indices, though some are real `object-fit`, `margin`, `color` and
+  `font-size` declarations. Check those too before concluding a value comes from the stylesheet.
+- **Every page carries two third-party `<link rel="preconnect">` hints** to `fonts.googleapis.com`
+  and `fonts.gstatic.com`. They are inert leftovers — no stylesheet is ever fetched from either —
+  but they are outbound connections to Google on each page load. See OPEN-ITEMS #1.
 - **Every link and asset path is relative.** Zero root-absolute references (`href="/…"` and
   `src="/…"` both count 0; there are 4,502 bare sibling page links and 170 bare `assets/…` sources).
   That means the site serves correctly from **any** subpath, so the repo can be renamed or the site
