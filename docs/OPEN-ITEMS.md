@@ -43,8 +43,8 @@ Fonts link requests only `Inter` and `Fraunces`:
 https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..700&display=swap
 ```
 
-`Space Grotesk` appears in the source's `tokens.css` and `structural.css` as a token value and is
-never loaded there either. The build is faithful to its source — which is precisely why the
+`Space Grotesk` is the `--ds-font-display` token value in the source's own `tokens.css`, and is
+never loaded there either (`structural.css` mentions it once, inside a comment). The build is faithful to its source — which is precisely why the
 round-trip pixel diff scored ~100%: both render in the same fallback.
 
 **To fix,** pick one: self-host Space Grotesk + Space Mono into `_xorigin/` and add `@font-face`
@@ -70,22 +70,40 @@ their intrinsic size:
 | `assets/real/optical-1.jpg` | **300 × 187** | 13 KB | 23 pages |
 | `assets/real/optical-2.jpg` | **300 × 161** | 12 KB | 8 pages |
 
-Measured on the deployed site rather than estimated — and the number depends heavily on viewport,
-so a single desktop reading understates it badly:
+All figures below were measured on the deployed site, not estimated. **There is no single "worst
+viewport" — two different containers fail in opposite directions**, so any one reading understates
+the problem.
 
-| Page | Viewport | `dr-hyder.jpg` renders | Upscale from 200 × 319 |
+**The genuine worst offender: an uncapped full-bleed hero.** On `contact-lens-exams.html`,
+`optical-1.jpg` (300 × 187) is a hero image whose rendered width **equals the viewport exactly** —
+`.container--full` sets `max-width:none`, and nothing further up the chain caps it. Its upscale is
+therefore **unbounded, growing with the window**:
+
+| Viewport | `optical-1.jpg` renders | Upscale from 300 × 187 |
+|---|---|---|
+| 1440 px | 1440 × 770 | 4.8× |
+| **1920 px** | **1920 × 770** | **6.4×** |
+| any width *w* | *w* × 770 | *w* / 300 |
+
+**A capped container, which fails the other way.** `dr-hyder.jpg` (200 × 319) is worst at a *mid*
+viewport, because at ≤1024 px `.bw-founder` collapses to a single column (`chrome.css` line 1349,
+inside the `@media (max-width:1024px)` block opening at 1346) and the portrait takes the full
+content width:
+
+| Page | Viewport | Renders | Upscale |
 |---|---|---|---|
 | `book-appointment.html` | 1280 px | 563 × 440 | 2.8× |
 | `our-doctor.html` | 900 px | 826 × 376 | 4.1× |
-| **`our-doctor.html`** | **1024 px** | **942 × 376** | **4.71× — the worst case** |
+| `our-doctor.html` | 1024 px | 942 × 376 | 4.71× |
 
-The reason the mid-size viewport is worse than the wide one: at ≤1024 px every two-column split row
-collapses to a single column (`chrome.css` line 1371), so the portrait stops sharing its row and
-stretches to nearly the full 944 px content width. A 200 px source blown up to 942 px is visibly
-soft. `practice-office.jpg` and `optical-2.jpg` hit 3.15× on the same page at the same width.
+(942 px is the bordered `.bw-founder__portrait` case; the 21 pages that place the same file in the
+borderless `.dc-frame--tall` reach the full 944 px content box, 4.72×.) `practice-office.jpg` and
+`optical-2.jpg` both hit 3.15× on `our-doctor.html` at 1024 px.
 
-A production pass needs higher-resolution replacements sitewide. When checking your work, measure
-at 1024 px, not just at desktop — desktop is the flattering case.
+**So: sweep the ladder and take the maximum per image — do not assume either end is the bad one.**
+A capped container is worst where its layout collapses; an uncapped one is worst at your widest
+viewport. A production pass needs higher-resolution replacements sitewide, and the full-bleed hero
+needs one at least 1920 px wide.
 
 Follow the swap discipline in the README: count references first, add a **new** file, repoint only
 the container you mean to change. `dr-hyder.jpg` alone is on 38 pages — overwriting it in place
@@ -130,7 +148,9 @@ to a `_superseded/` folder rather than deleting, and confirm the removal shows u
 
 **Status:** verified. Blocks a real launch; harmless while this is a build artifact.
 
-Every page has `<title>` and `<meta name="description">` and nothing else. No `<link rel="canonical">`,
+Each of the 43 content pages has `<title>` and `<meta name="description">` and nothing else
+(`404.html` differs in both directions — no description, but it does carry a robots meta). No
+`<link rel="canonical">`,
 no `og:*`, no `twitter:*`, no structured data. Sharing any URL produces a bare unfurl, and a search
 engine gets no signal about which copy of this content is authoritative.
 

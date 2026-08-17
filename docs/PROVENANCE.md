@@ -77,8 +77,8 @@ Before this is published anywhere presented as live, confirm in writing:
 
 ## What is original to this build
 
-Three images were supplied by the owner and added on **2026-08-06**, on `index.html` only. Each was
-sized to its measured container box:
+Three images were supplied by the owner and added on **2026-08-06**, on `index.html` only. Two were
+sized to their measured container box; the third is 20 px under it — see the table:
 
 | File | Container | Size | Pages using it |
 |---|---|---|---|
