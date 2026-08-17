@@ -84,7 +84,7 @@ Anything other than `200` on checks 1–4, or a hash mismatch on 5, means the de
 
 ## Moving to a different host or subpath
 
-No URL rewriting is needed. Every reference in the build is relative — 0 root-absolute `href="/…"`
+No URL rewriting is needed. Every *local* reference in the build is relative — 0 root-absolute `href="/…"`
 or `src="/…"`, and `chrome.css` reaches the fonts via relative `url(_xorigin/…)`. The site serves
 correctly from a domain root, from a project subpath, or from any nested folder.
 

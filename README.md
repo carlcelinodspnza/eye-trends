@@ -46,7 +46,7 @@ Three properties worth knowing before you touch anything:
   `fonts.googleapis.com` and `fonts.gstatic.com` (`404.html` carries none). They are inert
   leftovers — no stylesheet is ever fetched from either — but they are outbound connections to
   Google on each page load. See OPEN-ITEMS #1.
-- **Every link and asset path is relative.** Zero root-absolute references (`href="/…"` and
+- **Every LOCAL link and asset path is relative.** Zero root-absolute references (`href="/…"` and
   `src="/…"` both count 0; there are 4,502 bare sibling page links and 170 bare `assets/…` sources).
   That means the site serves correctly from **any** subpath, so the repo can be renamed or the site
   moved to a different host without rewriting a single URL.

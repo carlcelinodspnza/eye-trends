@@ -70,48 +70,61 @@ their intrinsic size:
 | `assets/real/optical-1.jpg` | **300 × 187** | 13 KB | 23 pages |
 | `assets/real/optical-2.jpg` | **300 × 161** | 12 KB | 8 pages |
 
-All figures below were measured on the deployed site, not estimated. **There is no single "worst
-viewport" — two different containers fail in opposite directions**, so any one reading understates
-the problem.
+### How to compute the upscale — get this right first
 
-**The genuine worst offender: an uncapped full-bleed hero.** On `contact-lens-exams.html`,
-`optical-1.jpg` (300 × 187) is a hero image whose rendered width **equals the viewport exactly** —
-`.container--full` sets `max-width:none`, and nothing further up the chain caps it. Its upscale is
-therefore **unbounded, growing with the window**:
+Every one of these images is `object-fit: cover`, so the scale actually applied is
+**`max(boxWidth / naturalWidth, boxHeight / naturalHeight)`**, not box-width ÷ natural-width.
+Whenever the box is proportionally *taller* than the source, the height drives the scale and a
+width-only calculation understates it badly — by 3.2× in the worst case below. Two independent
+audits caught a width-only figure in this document; do not reintroduce one.
 
-| Viewport | `optical-1.jpg` renders | Upscale from 300 × 187 |
-|---|---|---|
-| 375 px | 375 × 758 | 1.25× |
-| 768 px | 768 × 576 | 2.56× |
-| 1440 px | 1440 × 770 | 4.8× |
-| **1920 px** | **1920 × 770** | **6.4×** |
-| any width *w* | *w* × (varies) | ***w* / 300** |
+Also: several images are `loading="lazy"`. Measure them without scrolling and `naturalWidth`
+reads **0**, which silently poisons any ratio you compute. Force `loading="eager"`, scroll, and
+`decode()` before reading.
 
-Only the **width** follows the viewport. The height is content-driven, not a fixed ratio — the
-image computes `aspect-ratio: auto`, `max-height: none`, `object-fit: cover`, so it fills a
-container whose height comes from the hero's own content; measured heights ran 576–770 px across
-those four widths and do not follow a formula. Quote `w / 300` for the upscale; do not quote a
-fixed rendered height.
+### Which image is worst depends entirely on the viewport
 
-**A capped container, which fails the other way.** `dr-hyder.jpg` (200 × 319) is worst at a *mid*
-viewport, because at ≤1024 px `.bw-founder` collapses to a single column (`chrome.css` line 1349,
-inside the `@media (max-width:1024px)` block opening at 1346) and the portrait takes the full
-content width:
+There is no single worst offender. A full sweep of every `<img>` on all 44 pages at 7 viewports
+found the title changing hands three times:
 
-| Page | Viewport | Renders | Upscale |
+| Viewport | Worst image in the build | Where | Upscale |
 |---|---|---|---|
-| `book-appointment.html` | 1280 px | 563 × 440 | 2.8× |
-| `our-doctor.html` | 900 px | 826 × 376 | 4.1× |
-| `our-doctor.html` | 1024 px | 942 × 376 | 4.71× |
+| 375 px | `optical-1.jpg` | `contact-lens-exams.html` | 4.06× |
+| **768 px** | **`optical-2.jpg`** | **`glaucoma-management.html`** | **5.07× ← worst measured anywhere** |
+| 900 px | `dr-hyder.jpg` | `adult-eye-exams.html` | 4.14× |
+| 1024 px | `dr-hyder.jpg` | `adult-eye-exams.html` | 4.72× |
+| 1280–1920 px | `optical-1.jpg` | `contact-lens-exams.html` | 4.27× → 6.40× |
 
-(942 px is the bordered `.bw-founder__portrait` case; the 21 pages that place the same file in the
-borderless `.dc-frame--tall` reach the full 944 px content box, 4.72×.) `practice-office.jpg` and
-`optical-2.jpg` both hit 3.15× on `our-doctor.html` at 1024 px.
+**Mode 1 — an uncapped full-bleed hero.** On `contact-lens-exams.html`, `optical-1.jpg` (300 × 187)
+renders at a width that **equals the viewport exactly**: `.container--full` sets `max-width:none`
+and nothing up the chain caps it. Its width therefore grows without bound.
 
-**So: sweep the ladder and take the maximum per image — do not assume either end is the bad one.**
-A capped container is worst where its layout collapses; an uncapped one is worst at your widest
-viewport. A production pass needs higher-resolution replacements sitewide, and the full-bleed hero
-needs one at least 1920 px wide.
+| Viewport | Box | True upscale |
+|---|---|---|
+| 375 px | 375 × 758 | 4.06× (height-driven) |
+| 768 px | 768 × 576 | 3.08× (height-driven) |
+| 1440 px | 1440 × 770 | 4.80× (width-driven) |
+| **1920 px** | **1920 × 770** | **6.40×** (width-driven) |
+
+Note the curve is **U-shaped, not monotonic** — it bottoms out around 768–900 px and rises again
+toward the phone, because the box gets very tall as it narrows. Only the **width** tracks the
+viewport; the height is content-driven (`aspect-ratio: auto`, `max-height: none`) and followed no
+formula across the widths measured. `w / 300` is the correct upscale only above roughly 1235 px,
+where the box finally becomes wider than the source's 1.604:1 aspect.
+
+**Mode 2 — a capped container that collapses.** `dr-hyder.jpg` (200 × 319) is worst at a *mid*
+viewport, because at ≤1024 px `.bw-founder` collapses to one column (`chrome.css` line 1349, inside
+the `@media (max-width:1024px)` block opening at 1346) and the portrait takes the full content
+width: 2.8× at 1280 px on `book-appointment.html`, 4.1× at 900 px and 4.71× at 1024 px on
+`our-doctor.html`. (942 px is the bordered `.bw-founder__portrait` case; the borderless
+`.dc-frame--tall` placements reach the full 944 px box, 4.72×.)
+
+**Mode 3 — a CSS parse bug, which is the actual worst case.** The 5.07× reading is not a layout
+decision at all; it is fallout from the dropped `.dc-frame` rule described in **item 7 below**.
+
+**So: sweep the ladder and take the max per image, using the cover formula.** Neither end is
+reliably the bad one. A production pass needs higher-resolution replacements sitewide, and the
+full-bleed hero needs one at least 1920 px wide.
 
 Follow the swap discipline in the README: count references first, add a **new** file, repoint only
 the container you mean to change. `dr-hyder.jpg` alone is on 38 pages — overwriting it in place
@@ -156,7 +169,7 @@ to a `_superseded/` folder rather than deleting, and confirm the removal shows u
 
 **Status:** verified. Blocks a real launch; harmless while this is a build artifact.
 
-Each of the 43 content pages has `<title>` and `<meta name="description">` and nothing else
+Each of the 43 content pages carries `<title>`, `<meta name="description">`, `<meta charset>` and `<meta name="viewport">` — and no other metadata
 (`404.html` differs in both directions — no description, but it does carry a robots meta). No
 `<link rel="canonical">`,
 no `og:*`, no `twitter:*`, no structured data. Sharing any URL produces a bare unfurl, and a search
@@ -199,3 +212,80 @@ only audits cross-origin URLs. A completely unstyled page has scored 12/12 under
 
 Treat the round-trip pixel diff as the real fidelity evidence: 43/43 pages passing across 258/258
 viewports, 36 pages at 100.000%, lowest single viewport 99.983% on `book-appointment.html`.
+
+---
+
+## 7. 🔴 A malformed CSS comment silently drops 5 rules from the stylesheet
+
+**Status:** verified in the browser against the deployed site. **This is a live rendering defect,
+not a documentation issue — and it is the most serious item on this list.** It has not been fixed,
+because fixing it changes site output and needs sign-off.
+
+### The bug
+
+Five block comments in `chrome.css` contain the literal string `.et-*/` inside prose describing the
+namespace convention:
+
+```
+   this template's own; any .et-*/.bw-*/.row-- selector here is a SCOPED override, never a
+                              ^^
+                              this closes the comment
+```
+
+The `*/` inside `.et-*/` **terminates the block comment early**. Everything after it — the rest of
+the English prose, the real `*/`, and then the first real rule that follows — is fed to the CSS
+parser as one malformed construct and discarded. The parser recovers at the *second* rule.
+
+Affected comment lines: **1441, 1670, 1809, 1928, 2057**.
+
+### What it costs — 5 rules never reach the page
+
+Verified by reading the live CSSOM (`document.styleSheets`), not by inspection:
+
+| Comment | Rule silently dropped | In CSSOM | Next rule down | In CSSOM |
+|---|---|---|---|---|
+| 1441 | `.ct-hero` | **0** | `.ct-hero::before` | 1 |
+| 1670 | `.ia-hero` | **0** | `.ia-hero__media` | 1 |
+| 1809 | `.od-hero__quote` | **0** | — | — |
+| 1928 | `.thb-call` | **0** | `.thb-call svg` | 1 |
+| 2057 | `.dc-frame` | **0** | `.dc-frame--tall` | 1 |
+
+`.dc-frame` is used on **21 pages**. With its base rule missing, those media frames lose everything
+it was supposed to give them:
+
+| Property | Intended | Actually computed |
+|---|---|---|
+| `position` | `relative` | `static` |
+| `aspect-ratio` | `4 / 3` | `16 / 11` (inherited from elsewhere) |
+| `max-height` | `clamp(320px, 40vw, 452px)` | `400px` |
+| `overflow` | `hidden` | `visible` |
+| `border-radius` | `var(--ds-r-surface)` | `0px` |
+
+Losing `position:relative` is what causes the **worst image upscale in the build**: the
+absolutely-positioned `.dc-frame__img` child no longer has `.dc-frame` as its containing block, so
+it escapes to a further-out ancestor and stretches to 707 × 816 — blowing a 300 × 161 source up to
+**5.07×** on `glaucoma-management.html` at 768 px (see item 2).
+
+### Reproduce it
+
+```bash
+grep -n '\.et-\*/' chrome.css        # the five comment lines
+```
+```js
+// in the browser console on any page
+const s = [...document.styleSheets].find(s => (s.href||'').includes('chrome.css'));
+[...s.cssRules].filter(r => r.selectorText === '.dc-frame').length   // → 0
+[...s.cssRules].filter(r => r.selectorText === '.dc-frame--tall').length // → 1
+```
+
+### The fix (not applied)
+
+One character per site: change `.et-*/` to `.et-` (or `.et-\*/`, or reword) in each of the five
+comments, then re-verify that all five rules appear in the CSSOM. It is a low-risk edit to comment
+text only, but it **will change the rendered output** on the affected pages — restoring rounded
+corners, overflow clipping and the intended aspect ratios — so it is a visible design change and
+needs approval before shipping.
+
+**Provenance note:** this is almost certainly inherited from the source build rather than introduced
+by the clone, since `chrome.css` was consolidated verbatim from the source's stylesheets. Worth
+telling whoever maintains the original.
