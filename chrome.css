@@ -729,6 +729,7 @@ body.drawer-open .drawer{transform:translateX(0)}
    ---------------------------------------------------------------------------- */
 .et-media-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .et-doctor__portrait .et-media-img{ object-position:50% 22%; }   /* keep the doctor's face in frame */
+img[src*="practice-office"]{ object-position:12% 46%; }   /* keep the EYE TRENDS signage in frame on narrow crops */
 
 /* ----------------------------------------------------------------------------
    4 · HERO — HERO-COMPOSITIONS #2 (media-left mirror split). A warm editorial
@@ -3279,7 +3280,6 @@ body.home .ethc-house{ min-height:60px; padding:.55em 1.15em; }
 body.home .ethc-house__logo{ display:block; max-width:100%; height:auto; }
 @media (max-width:560px){
   body.home .ethc-house{ min-height:52px; }
-  body.home .ethc-house__logo{ max-width:118px; }
 }
 
 /* breathing room under the category tiles, before the "All eyewear" CTA */
@@ -3296,4 +3296,27 @@ body.home .ethc-why{ margin-top:clamp(28px,3.4vw,44px); }
      is left after the name/role caption -- column total then equals the copy column */
   body.home .row--split-media > .col:first-child{ display:flex; flex-direction:column; }
   body.home .et-doctor__media{ aspect-ratio:auto; max-height:none; flex:1 1 auto; min-height:0; }
+}
+
+/* the designer-house logos span the same width as the tile cards below, no pill container */
+body.home .ethc-houses{ display:grid; grid-template-columns:repeat(7,1fr); gap:var(--ds-space-sm); align-items:center; }
+body.home .ethc-house{ background:none; border:0; box-shadow:none; padding:0; min-height:0;
+  display:flex; align-items:center; justify-content:center; }
+body.home .ethc-house:hover{ transform:none; box-shadow:none; border-color:transparent; }
+
+/* a centred column's lede should share the button's centre line */
+body.home .col--center > .et-lede{ margin-inline:auto; }
+
+/* reviews: clear the UA <figure> margin so each card fills its grid cell */
+body.home .et-review{ margin:0; }
+
+@media (min-width:1025px){
+  /* the map fills the copy column's height, same treatment as the doctor portrait */
+  body.home .ethc-local__map{ aspect-ratio:auto; max-height:none; height:100%; }
+}
+@media (max-width:900px){
+  body.home .ethc-houses{ grid-template-columns:repeat(4,1fr); row-gap:var(--ds-space-md); }
+}
+@media (max-width:560px){
+  body.home .ethc-houses{ grid-template-columns:repeat(3,1fr); }
 }
