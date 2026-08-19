@@ -1439,7 +1439,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    <head><style> so the assembled T-CONTACT pages (+ their bulk descendants) carry this CSS from
    the global sheet — closing the promote page-local-<style> seam (promote extracts only <main>).
    Rides the LOCKED system exactly like §10b .bw-form / §10c .bw-* above: the ct- namespace is
-   this template's own; any .et-*/.bw-*/.row-- selector here is a SCOPED override, never a
+   this template's own; any .et-* / .bw-* / .row-- selector here is a SCOPED override, never a
    redefinition. TOKEN-PURE (G8): every colour resolves through var(--ds-*). Migration change: .ct-hero__h max-width:16ch -> 10.368em (em; measured 1ch=0.648em in Space Grotesk = the identical
    ~564px measure — ch is banned in the token sheet per G8/A3, which the whole structural sheet honors with em).
    ============================================================================ */
@@ -1668,7 +1668,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    <head><style> so the assembled T-ARTICLE pages (+ their bulk descendants) carry this CSS from
    the global sheet — closing the promote page-local-<style> seam (promote extracts only <main>).
    Rides the LOCKED system exactly like §10b .bw-form / §10c .bw-* above: the ia- namespace is
-   this template's own; any .et-*/.bw-*/.row-- selector here is a SCOPED override, never a
+   this template's own; any .et-* / .bw-* / .row-- selector here is a SCOPED override, never a
    redefinition. TOKEN-PURE (G8): every colour resolves through var(--ds-*). Migration change: none (already token-pure + ch-free).
    ============================================================================ */
 /* ============================================================================
@@ -1807,7 +1807,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    <head><style> so the assembled T-COMPANY pages (+ their bulk descendants) carry this CSS from
    the global sheet — closing the promote page-local-<style> seam (promote extracts only <main>).
    Rides the LOCKED system exactly like §10b .bw-form / §10c .bw-* above: the od- namespace is
-   this template's own; any .et-*/.bw-*/.row-- selector here is a SCOPED override, never a
+   this template's own; any .et-* / .bw-* / .row-- selector here is a SCOPED override, never a
    redefinition. TOKEN-PURE (G8): every colour resolves through var(--ds-*). Migration change: none (already token-pure + ch-free).
    ============================================================================ */
 /* ============================================================================
@@ -1924,7 +1924,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    GLOBAL sheet — closing the promote page-local-<style> seam (promote extracts only <main>,
    and verify-no-orphan-classes fails a fragment whose classes live only in a concept <style>).
    Rides the LOCKED SHOP-FORWARD BOUTIQUE system exactly like §10b .bw-form / §13 ct-* / §14 ia-* /
-   §15 od-* above: the thb- namespace is this template's own; any .et-*/.row-- selector here is a
+   §15 od-* above: the thb- namespace is this template's own; any .et-* / .row-- selector here is a
    SCOPED override, never a redefinition. TOKEN-PURE (G8): every colour resolves through var(--ds-*);
    the only literals are geometry. Adds ONLY the marquee-specific treatments the shared body system
    does not carry (the click-to-call lockup, the thin proof strip, the anti-chain pain->fix rows, the
@@ -2053,7 +2053,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    (_design/_tournament/templates/T-FEATURE/concept-c/preview.html) so the assembled T-FEATURE pages carry
    this CSS from the GLOBAL sheet — closing the promote page-local-<style> seam (assembly extracts only
    <main>, dropping the concept <style>). Rides the LOCKED system exactly like §13-§15: the dc- namespace is
-   this template's own; any .et-*/.row-- selector here is a SCOPED override, never a redefinition. TOKEN-PURE
+   this template's own; any .et-* / .row-- selector here is a SCOPED override, never a redefinition. TOKEN-PURE
    (G8): every colour resolves through var(--ds-*); the only literals are geometry (grid tracks, %, vw,
    aspect-ratios, radii-math, px offsets, opacities, mask alphas).
    ============================================================================ */
@@ -2101,7 +2101,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
 .dc-hero__sub{ font-size:clamp(1.06rem, 1.4vw, 1.24rem); line-height:1.58; color:var(--ds-ink-soft);
   margin:var(--ds-space-md) 0 0; max-width:37rem; }
 .dc-hero__media{ position:relative; }
-.dc-chip{ position:absolute; left:clamp(-10px,-1.6vw,-20px); bottom:clamp(16px,3vw,28px); z-index:3;
+.dc-chip{ position:absolute; left:clamp(16px,2.4vw,28px); bottom:clamp(16px,2.4vw,28px); z-index:3;
   display:flex; align-items:center; gap:.7em; padding:.62em 1em; border-radius:var(--ds-r-pill);
   background:color-mix(in srgb, var(--ds-bg-surface-2) 82%, transparent);
   -webkit-backdrop-filter:var(--ds-glass-blur); backdrop-filter:var(--ds-glass-blur);
@@ -2265,7 +2265,7 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
   .dc-stats3{ grid-template-columns:1fr; }
   .dc-relrow{ grid-template-columns:1fr; }
   .dc-pill{ grid-template-columns:1fr; gap:var(--ds-space-sm); }
-  .dc-chip{ left:auto; right:clamp(12px,4vw,16px); bottom:12px; }
+  .dc-chip{ left:auto; right:clamp(12px,4vw,16px); bottom:clamp(12px,4vw,16px); }
 }
 
 /* ---- dc-* EXTRAS · classes the assembled T-FEATURE fragments use beyond the concept <style>: the
@@ -3378,3 +3378,28 @@ img[src*="dr-hyder-portrait"]{ object-position:50% 22%; }
    1.14 is a display value and is far too tight for a paragraph this long. */
 .tib-creed__q--long{ font-weight:400; font-size:clamp(1.05rem,1.7vw,1.4rem);
   line-height:1.55; letter-spacing:0; text-wrap:pretty; }
+
+/* ============================================================================
+   INSURANCE page-scoped layout (body.insurance)
+   Two owner calls: (a) the hero was 1115px tall in a 900px viewport, pushing the
+   CTAs below the fold, with a 409px image beside an 883px text column; (b) the
+   accepted-plans row ran Vision / Medical / Also-welcome as three equal columns,
+   so the 12-pill Medical panel left the two 3-pill panels mostly empty.
+   ============================================================================ */
+
+/* (a) compact hero - smaller display type + a media panel that fills the row */
+body.insurance .ia-hero .et-hero__h{ font-size:clamp(2rem, 3.1vw, 2.85rem); line-height:1.06; }
+body.insurance .ia-hero .et-hero__sub{ font-size:clamp(1rem, 1.12vw, 1.08rem); line-height:1.6; max-width:34rem; }
+@media (min-width:1025px){
+  body.insurance .ia-hero .row--split{ grid-template-columns:1fr 1fr; align-items:stretch; }
+  body.insurance .ia-hero .row--split > .col{ display:flex; flex-direction:column; justify-content:center; min-width:0; }
+  body.insurance .ia-hero__media{ aspect-ratio:auto; max-height:none; height:100%; min-height:360px; }
+}
+
+/* (b) stack the two short panels in one column beside the tall medical list */
+@media (min-width:861px){
+  body.insurance .ia-plansband .row--svc{ grid-template-columns:1.3fr .7fr; align-items:stretch; }
+  body.insurance .ia-plansband .row--svc > .col:nth-child(1){ grid-column:1; grid-row:1; }
+  body.insurance .ia-plansband .row--svc > .col:nth-child(3){ grid-column:1; grid-row:2; }
+  body.insurance .ia-plansband .row--svc > .col:nth-child(2){ grid-column:2; grid-row:1 / span 2; }
+}
