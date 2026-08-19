@@ -3298,8 +3298,11 @@ body.home .ethc-house{ background:none; border:0; box-shadow:none; padding:0; mi
   display:flex; align-items:center; justify-content:center; }
 body.home .ethc-house:hover{ transform:none; box-shadow:none; border-color:transparent; }
 
-/* a centred column's lede should share the button's centre line */
-body.home .col--center > .et-lede{ margin-inline:auto; }
+/* a centred column's lede should share the button's centre line. Global: .et-lede
+   caps at max-width:52rem with no auto margin, so inside a .col--center its BOX sits
+   left while its text centres, leaving it off-axis from the button below. Five
+   instances site-wide -- index and the four glasses pages. */
+.col--center > .et-lede{ margin-inline:auto; }
 
 /* reviews: clear the UA <figure> margin so each card fills its grid cell */
 body.home .et-review{ margin:0; }
@@ -3367,3 +3370,11 @@ body.home .et-review{ margin:0; }
 .et-doctor__badge span, .tib-creed__badge span,
 .ia-portrait__badge span, .dc-doctor__badge span{ line-height:1.18; text-align:left; }
 img[src*="dr-hyder-portrait"]{ object-position:50% 22%; }
+
+
+/* A long creed passage set at H3 scale and normal weight. The sibling pages run
+   182-340 characters and read fine as a bold pull-quote; sunglasses runs 566, where
+   that treatment becomes a wall of heavy display type. Line-height opens up too --
+   1.14 is a display value and is far too tight for a paragraph this long. */
+.tib-creed__q--long{ font-weight:400; font-size:clamp(1.05rem,1.7vw,1.4rem);
+  line-height:1.55; letter-spacing:0; text-wrap:pretty; }
