@@ -3272,6 +3272,16 @@ body.home .et-doctor__badge span{ line-height:1.18; text-align:left; }
 /* designer-house chips read as a wordmark strip (the filler dot is gone from the markup) */
 body.home .ethc-house{ font-size:1rem; letter-spacing:.01em; padding:.62em 1.25em; }
 
+/* real brand logos in the house chips. Each PNG is trimmed to its ink box and the
+   width/height attributes are pre-balanced by optical mass (h = K/sqrt(aspect)), so a
+   long thin wordmark like Lindberg does not tower over a compact one like Persol. */
+body.home .ethc-house{ min-height:60px; padding:.55em 1.15em; }
+body.home .ethc-house__logo{ display:block; max-width:100%; height:auto; }
+@media (max-width:560px){
+  body.home .ethc-house{ min-height:52px; }
+  body.home .ethc-house__logo{ max-width:118px; }
+}
+
 /* breathing room under the category tiles, before the "All eyewear" CTA */
 body.home .ethc-tiles{ margin-bottom:clamp(30px,3.6vw,48px); }
 
