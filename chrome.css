@@ -729,7 +729,7 @@ body.drawer-open .drawer{transform:translateX(0)}
    ---------------------------------------------------------------------------- */
 .et-media-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .et-doctor__portrait .et-media-img{ object-position:50% 22%; }   /* keep the doctor's face in frame */
-img[src*="practice-office"]{ object-position:12% 46%; }   /* keep the EYE TRENDS signage in frame on narrow crops */
+img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS signage in frame on narrow crops */
 
 /* ----------------------------------------------------------------------------
    4 · HERO — HERO-COMPOSITIONS #2 (media-left mirror split). A warm editorial
