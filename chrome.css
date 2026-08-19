@@ -2670,7 +2670,7 @@ body.drawer-open .drawer{transform:translateX(0)}
 /* ---- S2 . TRUST STRIP (light-band big-number cluster + a candid banner photo) ---- */
 .ethc-trust__photo{ position:relative; width:100%; min-width:0; aspect-ratio:24/7; max-height:210px;
   border-radius:var(--ds-r-surface); overflow:hidden; box-shadow:var(--ds-shadow-card), var(--ds-inset-hi);
-  margin-bottom:clamp(26px,3.4vw,44px); background:var(--ds-bg-warm); }
+  margin-top:clamp(24px,3vw,40px); margin-bottom:clamp(20px,2.6vw,32px); background:var(--ds-bg-warm); }
 .ethc-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,3vw,40px); }
 .ethc-stat{ display:flex; flex-direction:column; gap:5px; }
 .ethc-stat__k{ font-family:var(--ds-font-display); font-weight:700; letter-spacing:-.03em; line-height:.95;
