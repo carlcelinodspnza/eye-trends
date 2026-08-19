@@ -3264,10 +3264,6 @@ img[src*="storefront"]{ object-position:12% 46%; }   /* keep the EYE TRENDS sign
    the original treatment, so these can be lifted site-wide later by deleting
    the `body.home ` prefixes. */
 
-/* "42" beside a two-line "years in / Clear Lake" instead of stacked above it */
-body.home .et-doctor__badge{ flex-direction:row; align-items:center; gap:.6em; }
-body.home .et-doctor__badge span{ line-height:1.18; text-align:left; }
-
 /* designer-house chips read as a wordmark strip (the filler dot is gone from the markup) */
 body.home .ethc-house{ font-size:1rem; letter-spacing:.01em; padding:.62em 1.25em; }
 
@@ -3361,6 +3357,13 @@ body.home .et-review{ margin:0; }
 .tib-collections > .container > .row--head:has(.et-lede) + .row,
 .tib-wayfinding  > .container > .row--head:has(.et-lede) + .row{ margin-top:clamp(32px,4vw,52px); }
 
-/* the creed badge matches the homepage: "42" beside a two-line label */
-.tib-creed__badge{ flex-direction:row; align-items:center; gap:.55em; }
-.tib-creed__badge span{ line-height:1.18; text-align:left; }
+
+
+/* ===== the doctor card, one treatment everywhere =====
+   "42" sits beside a two-line "years in / Clear Lake" on every badge variant, and
+   the single canonical portrait keeps the face in frame at any crop. */
+.et-doctor__badge, .tib-creed__badge, .ia-portrait__badge, .dc-doctor__badge{
+  flex-direction:row; align-items:center; gap:.55em; }
+.et-doctor__badge span, .tib-creed__badge span,
+.ia-portrait__badge span, .dc-doctor__badge span{ line-height:1.18; text-align:left; }
+img[src*="dr-hyder-portrait"]{ object-position:50% 22%; }
