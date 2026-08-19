@@ -2726,8 +2726,8 @@ body.drawer-open .drawer{transform:translateX(0)}
 .ethc-shopnote svg{ width:15px; height:15px; color:var(--ds-primary); flex:0 0 auto; margin-top:2px; }
 
 /* ---- S8 . INSURANCE (accepted-plan wall; price-free) ---- */
-.ethc-plans{ display:flex; flex-wrap:wrap; gap:var(--ds-space-sm); }
-.ethc-plan{ display:inline-flex; align-items:center; gap:.5em; font-family:var(--ds-font-display); font-weight:600;
+.ethc-plans{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:var(--ds-space-sm); }
+.ethc-plan{ display:flex; align-items:center; justify-content:center; gap:.5em; font-family:var(--ds-font-display); font-weight:600;
   font-size:.92rem; color:var(--ds-ink-heading); padding:.6em 1.05em; border-radius:var(--ds-r-control);
   border:1px solid var(--ds-line); background:var(--ds-bg-surface-2); box-shadow:var(--ds-shadow-rest); }
 .ethc-plan__mk{ width:7px; height:7px; border-radius:var(--ds-r-pill); background:var(--ds-primary); flex:0 0 auto; }
@@ -3274,3 +3274,16 @@ body.home .ethc-house{ font-size:1rem; letter-spacing:.01em; padding:.62em 1.25e
 
 /* breathing room under the category tiles, before the "All eyewear" CTA */
 body.home .ethc-tiles{ margin-bottom:clamp(30px,3.6vw,48px); }
+
+/* air between the section lede and the first at-a-chain/here comparison box */
+body.home .ethc-why{ margin-top:clamp(28px,3.4vw,44px); }
+
+/* the doctor portrait fills the copy column's height instead of floating short.
+   Desktop only -- at <=1024px .row--split-media stacks to one column. */
+@media (min-width:1025px){
+  body.home .row--split-media{ align-items:stretch; }
+  /* the media column becomes a flex column so the photo absorbs whatever height
+     is left after the name/role caption -- column total then equals the copy column */
+  body.home .row--split-media > .col:first-child{ display:flex; flex-direction:column; }
+  body.home .et-doctor__media{ aspect-ratio:auto; max-height:none; flex:1 1 auto; min-height:0; }
+}
