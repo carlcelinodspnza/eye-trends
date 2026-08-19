@@ -780,7 +780,7 @@ body.drawer-open .drawer{transform:translateX(0)}
    ECOMMERCE-SECTIONS #2. Product-forward frame cards, PRICE-FREE. The action is
    "Add to Selections" (books an exam, never buys — content-bible). Sharp-soft cards.
    ---------------------------------------------------------------------------- */
-.et-frame{ position:relative; display:flex; flex-direction:column; background:var(--ds-bg-surface-2);
+.et-frame{ position:relative; display:flex; flex-direction:column; height:100%; background:var(--ds-bg-surface-2);
   border:1px solid var(--ds-line); border-radius:var(--ds-r-surface); overflow:hidden;
   box-shadow:var(--ds-shadow-rest); transition:transform var(--ds-dur) var(--ds-ease),
   box-shadow var(--ds-dur) var(--ds-ease), border-color var(--ds-dur) var(--ds-ease); }
@@ -805,7 +805,7 @@ body.drawer-open .drawer{transform:translateX(0)}
   text-transform:uppercase; color:var(--ds-accent-ink); }
 .et-frame__name{ font-family:var(--ds-font-display); font-weight:600; font-size:1.05rem; color:var(--ds-ink-heading); }
 .et-frame__meta{ font-size:.84rem; color:var(--ds-ink-soft); line-height:1.45; }
-.et-frame__foot{ margin-top:var(--ds-space-sm); display:flex; align-items:center; justify-content:space-between; gap:var(--ds-space-sm); }
+.et-frame__foot{ margin-top:auto; padding-top:var(--ds-space-sm); display:flex; align-items:center; justify-content:space-between; gap:var(--ds-space-sm); }
 .et-frame__add{ display:inline-flex; align-items:center; gap:.45em; font-family:var(--ds-font-display);
   font-weight:600; font-size:.86rem; color:var(--ds-primary);
   padding:.5em .75em; border-radius:var(--ds-r-control); border:1.5px solid color-mix(in srgb,var(--ds-primary) 34%,transparent);
