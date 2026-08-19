@@ -1869,8 +1869,6 @@ img[src*="practice-office"]{ object-position:12% 46%; }   /* keep the EYE TRENDS
   background:var(--ds-bg-warm); box-shadow:var(--ds-shadow-card-2stop), var(--ds-inset-hi); }
 .od-media--tall{ aspect-ratio:5 / 4; }
 .od-media__img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-.od-media::after{ content:""; position:absolute; left:0; top:0; z-index:2; width:32%; height:5px;
-  background:var(--ds-accent); border-bottom-right-radius:var(--ds-r-control); }
 
 /* ---- S4 solo bio - the ONE doctor renders as a SINGLE WIDE balanced member card that SPANS
    the reading measure and CENTRES in the section (portrait 4/5 beside the body), matching
@@ -3319,4 +3317,26 @@ body.home .et-review{ margin:0; }
 }
 @media (max-width:560px){
   body.home .ethc-houses{ grid-template-columns:repeat(3,1fr); }
+}
+
+
+/* ===== our-doctor.html layout fixes ===== */
+
+/* "Trusted in Clear Lake" runs as two columns so the copy does not leave the
+   right half empty: heading + lede on the left, the record list on the right,
+   with the storefront photo spanning both. */
+.od-record__grid{ display:grid; grid-template-columns:1.15fr .85fr;
+  gap:clamp(28px,4vw,56px) clamp(32px,4.5vw,64px); align-items:start; }
+.od-record__grid > .et-sec-head{ margin-bottom:0; }
+.od-record__grid > .od-facts{ margin-top:.35em; max-width:none; align-self:start; }
+.od-record__grid > .od-proof__media{ grid-column:1 / -1; margin-top:0; }
+@media (max-width:900px){
+  .od-record__grid{ grid-template-columns:1fr; }
+  .od-record__grid > .od-facts{ margin-top:0; }
+}
+
+/* the bio portrait fills the card height instead of sitting 45px short of the copy */
+@media (min-width:641px){
+  .bw-team__member{ align-items:stretch; }
+  .bw-team__portrait{ aspect-ratio:auto; max-height:none; }
 }
