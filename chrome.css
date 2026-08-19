@@ -3349,3 +3349,18 @@ body.home .et-review{ margin:0; }
   .bw-team__member{ align-items:stretch; }
   .bw-team__portrait{ aspect-ratio:auto; max-height:none; }
 }
+
+
+/* ===== tib-* template: heading block had no bottom margin ===== */
+/* These sections carry their eyebrow/H2/lede loose in a .row--head rather than in an
+   .et-sec-head wrapper, so nothing separated the heading from the content beneath it --
+   measured 0px on designer-frames, and the same pattern is on all six tib-* pages.
+   Target only the heading row (the one holding the lede) so the repeated collection
+   rows below keep their own 40px rhythm. */
+.tib-featured    > .container > .row--head:has(.et-lede) + .row,
+.tib-collections > .container > .row--head:has(.et-lede) + .row,
+.tib-wayfinding  > .container > .row--head:has(.et-lede) + .row{ margin-top:clamp(32px,4vw,52px); }
+
+/* the creed badge matches the homepage: "42" beside a two-line label */
+.tib-creed__badge{ flex-direction:row; align-items:center; gap:.55em; }
+.tib-creed__badge span{ line-height:1.18; text-align:left; }
