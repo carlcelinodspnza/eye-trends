@@ -3326,13 +3326,22 @@ body.home .et-review{ margin:0; }
    right half empty: heading + lede on the left, the record list on the right,
    with the storefront photo spanning both. */
 .od-record__grid{ display:grid; grid-template-columns:1.15fr .85fr;
-  gap:clamp(28px,4vw,56px) clamp(32px,4.5vw,64px); align-items:start; }
-.od-record__grid > .et-sec-head{ margin-bottom:0; }
-.od-record__grid > .od-facts{ margin-top:.35em; max-width:none; align-self:start; }
-.od-record__grid > .od-proof__media{ grid-column:1 / -1; margin-top:0; }
+  column-gap:clamp(32px,4.5vw,64px); row-gap:0; align-items:start; }
+/* lift the heading block's children into the grid so the record list starts level
+   with the H2 instead of with the eyebrow that sits above it */
+.od-record__grid > .et-sec-head{ display:contents; }
+.od-record__grid > .et-sec-head > .et-eyebrow{ grid-column:1 / -1; grid-row:1; }
+.od-record__grid > .et-sec-head > .et-h2{ grid-column:1; grid-row:2; }
+.od-record__grid > .et-sec-head > .et-lede{ grid-column:1; grid-row:3; }
+.od-record__grid > .od-facts{ grid-column:2; grid-row:2 / span 2;
+  margin-top:0; max-width:none; align-self:start; }
+.od-record__grid > .od-proof__media{ grid-column:1 / -1; grid-row:4;
+  margin-top:clamp(28px,3.6vw,44px); }
 @media (max-width:900px){
   .od-record__grid{ grid-template-columns:1fr; }
-  .od-record__grid > .od-facts{ margin-top:0; }
+  .od-record__grid > .et-sec-head{ display:block; margin-bottom:0; }
+  .od-record__grid > .od-facts{ grid-column:auto; grid-row:auto; margin-top:clamp(18px,2.4vw,28px); }
+  .od-record__grid > .od-proof__media{ grid-column:auto; grid-row:auto; }
 }
 
 /* the bio portrait fills the card height instead of sitting 45px short of the copy */
